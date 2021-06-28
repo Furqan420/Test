@@ -25,7 +25,7 @@ body{
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: 0 10px 10px 10px rgba(0,0,0,0.2);
-   
+    /* margin: auto 10px; */
     
 }
 
@@ -46,11 +46,34 @@ body{
     font-style: italic;
 }
 
-@media  screen and (max-wdith: 1000px) {
+.button-container{
+    margin-top: 15px ;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #333;
+    outline:none;
+    padding: 0.5rem 1.8rem ;
+    box-shadow: 0 0.3rem rgba(121,121,121,0.65);
+
+}
+
+
+
+
+ @media  only screen and (max-width: 1000px) {
     .quote-container{
         margin: auto 10px;
+
     }
     .quote-text{
         font-size: 2.5rem;
     }
-}
+} 
