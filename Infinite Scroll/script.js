@@ -9,6 +9,7 @@ let photosArray =[];
 
 
 function displayPhtoto(){
+  
     photosArray.forEach((photo)=>{
         const item = document.createElement('a');
         item.setAttribute('href' ,photo.links.html);
@@ -19,20 +20,34 @@ function displayPhtoto(){
         img.setAttribute('alt',photo.alt_description);       
         img.setAttribute('title',photo.alt_description); 
         
+       
         item.appendChild(img);
         imgContainer.appendChild(item);
+        
        
     })
+    
 }
 
 async function getPhotos() {
+  
     try {
+        
         const response = await fetch(apiUrl);
         photosArray = await response.json();
         displayPhtoto();
+       
+       
     } catch (error) {
         //Error
     }
 }
 
-getPhotos();
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight-1000  ) {
+      getPhotos();
+      console.log("load more");
+    }});
+
+
+    getPhotos();
